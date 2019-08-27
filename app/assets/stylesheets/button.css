@@ -56,7 +56,7 @@ body {
   display: inline-block;
   height: 25px;
   text-align: center;
-  background-color: white;
+  background-color: lightgray;
   font-size: 15px;
   line-height: 18px;
   color: #FFF;
@@ -97,7 +97,7 @@ body {
   display: inline-block;
   height: 25px;
   text-align: center;
-  background-color: white;
+  background-color: lightgray;
   font-size: 15px;
   line-height: 18px;
   color: #FFF;
