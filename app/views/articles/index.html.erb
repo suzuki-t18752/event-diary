@@ -1,0 +1,40 @@
+<div class="text-left">
+  <%= form_tag articles_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], placeholder:"タイトル、日付" %>
+      <%= submit_tag "投稿の検索" %>
+  <% end %>
+</div>
+<div class="top">
+  <% @articles.each do |article| %>
+      <div class="toppage">
+        <%= link_to article do %>
+          <% if article.image? %>
+            <%= image_tag article.image.thumb.url, class: "topimage" %>
+            <% else %>
+            <%= content_tag :div, image_tag("写真の無い場合.jpeg"), class: "topimage" %>
+          <% end %>
+          <div class="toptitle">
+            <%= truncate(article.name, length:30) %><br>
+            タグ:<% article.tag_list.each do |tag| %>
+              <%=link_to tag, articles_path(tag_name: tag), class: "text-white badge badge-primary"%>
+            <% end %><br>
+            <%= link_to "投稿者:" + truncate(article.user.name, length:30), user_path(article.user) %>
+            作成日:<%= article.created_at.strftime("%Y年%m月%d日") %>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
+<style type="text/css">
+<!--
+.hidden{
+  height: 140px;
+  background-image: url("<%= asset_url("nav.jpeg") %>");
+}
+
+a {
+  display: block;
+}
+-->
+</style>

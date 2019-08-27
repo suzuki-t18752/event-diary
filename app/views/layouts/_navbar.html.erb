@@ -1,0 +1,44 @@
+<header class="mb-4">
+  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: white;">
+      <% if logged_in? %>
+      <a class="navbar-brand" href="/articles">Event diary</a>
+      <% else %>
+      <a class="navbar-brand" href="/">Event diary</a>
+      <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to '新規投稿', new_article_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: 'nav-link' %></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= truncate(current_user.name, length:10) %></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to 'プロフィール編集', edit_user_path(current_user) %></li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+              <li class="dropdown-item"><%= link_to '退会', user_path(current_user), method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item"><%= link_to "ユーザー作成", signup_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+    <div class="hidden"></div>
+</header>
+
+<style type="text/css">
+<!--
+.hidden{
+  height: 140px;
+  background-image: url("<%= asset_url("nav.jpeg") %>");
+}
+-->
+</style>

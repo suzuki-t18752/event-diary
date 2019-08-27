@@ -1,0 +1,39 @@
+<div class="center">
+  <div class="text-center">
+    <h1>Welcome to the Event diary</h1>
+    <p>
+      <%= link_to 'ユーザー作成', signup_path, class: 'btn-gradient-3d-orange' %>
+      <%= link_to '登録せず投稿を見る', articles_path, class: 'btn-gradient-3d-orange' %>
+    </p>
+  </div>
+</div>
+
+<style type="text/css">
+<!--
+
+
+.hidden {
+  display: none;
+}
+
+
+body {
+  background-image: url("<%= asset_url("背景用画像.jpeg") %>");
+}
+
+h1 {
+  color: orange;
+  -webkit-text-stroke: 1px #FFF;
+  text-stroke: 1px #FFF;
+}
+
+.center {
+  margin-top: 150px;
+}
+
+p {
+  margin-top: 50px;
+}
+
+-->
+</style>

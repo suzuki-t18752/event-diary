@@ -1,0 +1,45 @@
+<div class="back">
+  <h2><%= @article.name %></h2>
+  タグ:<% @article.tag_list.each do |tag| %>
+    <%=link_to tag, articles_path(tag_name: tag), class: "text-white badge badge-primary"%>
+  <% end %>
+  <p class="name text-right"><%= link_to "投稿者:" + @article.user.name, user_path(@article.user) %>　　作成日:<%= @article.created_at.strftime("%Y年%m月%d日") %></P>
+</div>
+<% if @article.image? %>
+  <%= image_tag @article.image.url %>
+<% else %>
+<% end %>
+<div class="back border-bottom">
+  <p class="text-center"><%= content_tag :div, @article.content, class: "longtext" %></p>
+
+  <% if current_user == @article.user %>
+    <%= link_to '更新', edit_article_path(@article), class: 'btn-gradient-3d-simple' %>
+    <%= link_to '削除', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-gradient-3d-delete' %>
+    <% if @article.favorited_by?(current_user) %>
+        <%=link_to 'お気に入り解除', article_favorites_path(@article.id), method: :delete, class: 'btn-gradient-3d-delete' %>
+    <% else %>
+        <%=link_to 'お気に入り', article_favorites_path(@article.id), method: :post, class: 'btn-gradient-3d-simple' %>
+    <% end %>
+  <% end %>
+  <%= link_to '戻る', articles_path, class: 'btn-gradient-3d-simple' %>
+</div>
+
+<h6>コメント:<%= @article.comments.count %>件</h6>
+<%= form_for([@article,@article.comments.build]) do |f| %>
+   <%= f.text_field :content%>
+   <%= f.button 'コメントする' %>
+<% end %>
+    <% @comments.each do |comment| %>
+    <p class="border-bottom">
+      <%= content_tag :span, comment.user.name, class: "longtext" %>:
+      <%= content_tag :span, comment.content, class: "longtext" %>
+    </p>
+    <% end %>
+
+
+
+<style type="text/css">
+<!--
+
+-->
+</style>

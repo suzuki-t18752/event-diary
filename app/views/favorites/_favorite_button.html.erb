@@ -1,0 +1,21 @@
+<% articles.each do |article| %>
+  <div class="border-bottom">
+    <h6><%= article.article.name %></h6>
+    <%= link_to "投稿者:" + article.article.user.name, user_path(article.article.user) %><br>
+    作成日:<%= article.article.created_at.strftime("%Y年%m月%d日") %><br>
+    タグ:<% article.article.tag_list.each do |tag| %>
+      <%=link_to tag, articles_path(tag_name: tag), class: "text-white badge badge-primary"%>
+    <% end %><br>
+    <%= link_to '', article_path %>
+    <% if current_user == article.user %>
+    <%= link_to '更新', edit_article_path(article), class: 'btn-gradient-3d-simple' %>
+    <%= link_to '削除', article_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-gradient-3d-delete' %>
+    <% end %>
+    <% if article.article.favorited_by?(current_user) %>
+        <%=link_to 'お気に入り解除', article_favorites_path(article.id), method: :delete, class: 'btn-gradient-3d-delete' %>
+    <% else %>
+        <%=link_to 'お気に入り', article_favorites_path(article.id), method: :post, class: 'btn-gradient-3d-simple' %>
+    <% end %>
+  </div>
+<% end %>
+

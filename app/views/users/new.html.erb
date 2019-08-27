@@ -1,0 +1,40 @@
+<div class="text-center back">
+  <h1>ユーザー作成</h1>
+  <p>画像以外は全て入力してください</p>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 back">
+
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      
+      <div class="form-group">
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :password, 'パスワード' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'パスワード確認' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :profile_image, 'プロフィール画像' %>
+        <%= f.file_field :image, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :introduction, '自己紹介' %>
+        <%= f.text_area :introduction, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '入会', class: 'btn-border btn-block' %>
+    <% end %>
+  </div>
+</div>
