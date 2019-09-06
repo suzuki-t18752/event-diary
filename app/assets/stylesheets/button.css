@@ -13,19 +13,21 @@ body {
 .toppage {
   display: inline-block;
   margin: 5px;
-  width: 200px;
+  width: 100%;
   height: auto;
   background-color: lightgray;
 }
 
 .topimage {
   display: inline-block;
+  width: 100%
 }
 
 
 .toptitle {
   display: inline-block;
   word-break: break-all;
+  width: 100%
 }
 
 @media (max-width: 991px) {

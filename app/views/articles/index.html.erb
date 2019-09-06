@@ -6,7 +6,7 @@
 </div>
 <div class="top row">
   <% @articles.each do |article| %>
-    <div class="col-12 col-sm-4 col-md-3">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-2">
       <div class="toppage">
         <%= link_to article do %>
           <% if article.image? %>
@@ -30,10 +30,6 @@
 
 <style type="text/css">
 <!--
-.container {
-  padding: 0;
-}
-
 a {
   display: block;
 }
