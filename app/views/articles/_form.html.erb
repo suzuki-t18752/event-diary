@@ -14,23 +14,23 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="field">
-        <%= form.label :name %>
+        <%= form.label "タイトル" %>
         <%= form.text_field :name %>
       </div>
       
       <div class="field">
-        <%= form.label :tag_list %>
+        <%= form.label "タグ" %>
         <%= text_field_tag 'article[tag_list]', @article.tag_list.join(','), "data-role": "tagsinput"  %>
         <p>設定したいタグ事に , で区切ってください</p>
       </div>
       
       <div class="field">
-      <%= form.label "top image" %>
+      <%= form.label "トップ画像" %>
       <%= form.file_field :image %>
       </div>
       
       <div class="field content">
-        <%= form.label :content %>
+        <%= form.label "内容" %>
         <%= form.rich_text_area :content %>
       </div>
     
