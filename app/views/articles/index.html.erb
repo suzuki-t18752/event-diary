@@ -4,14 +4,15 @@
       <%= submit_tag "投稿の検索" %>
   <% end %>
 </div>
-<div class="top">
+<div class="top row">
   <% @articles.each do |article| %>
+    <div class="col-12 col-sm-4 col-md-3">
       <div class="toppage">
         <%= link_to article do %>
           <% if article.image? %>
             <%= image_tag article.image.thumb.url, class: "topimage" %>
             <% else %>
-            <%= content_tag :div, image_tag("写真の無い場合.jpeg"), class: "topimage" %>
+            <%= image_tag "写真の無い場合.jpeg", class: "topimage" %>
           <% end %>
           <div class="toptitle">
             <%= truncate(article.name, length:30) %><br>
@@ -23,11 +24,16 @@
           </div>
         <% end %>
       </div>
+    </div>
   <% end %>
 </div>
 
 <style type="text/css">
 <!--
+.container {
+  padding: 0;
+}
+
 a {
   display: block;
 }
