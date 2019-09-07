@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.search(params[:search]).page(params[:page]).per(20)
+    @articles = Article.search(params[:search]).page(params[:page]).per(24)
     
     if params[:tag_name]
       @articles = @articles.tagged_with("#{params[:tag_name]}")
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @comments = Comment.where(article_id: @article)    
+    @comments = Comment.where(article_id: @article)   
   end
 
   # GET /articles/new
