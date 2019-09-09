@@ -15,6 +15,8 @@
   <% if current_user == @article.user %>
     <%= link_to '更新', edit_article_path(@article), class: 'btn-gradient-3d-simple' %>
     <%= link_to '削除', @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-gradient-3d-delete' %>
+  <% end %>
+  <% if logged_in? %>
     <% if @article.favorited_by?(current_user) %>
         <%=link_to 'お気に入り解除', article_favorites_path(@article.id), method: :delete, class: 'btn-gradient-3d-delete' %>
     <% else %>
@@ -25,9 +27,11 @@
 </div>
 
 <h6>コメント:<%= @article.comments.count %>件</h6>
-<%= form_for([@article,@article.comments.build]) do |f| %>
-   <%= f.text_field :content%>
-   <%= f.button 'コメントする' %>
+<% if logged_in? %>
+  <%= form_for([@article,@article.comments.build]) do |f| %>
+     <%= f.text_field :content%>
+     <%= f.button 'コメントする' %>
+  <% end %>
 <% end %>
     <% @comments.each do |comment| %>
     <p class="border-bottom">
