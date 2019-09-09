@@ -15,6 +15,7 @@
       <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">お気に入り<span class="badge badge-secondary"><%= @count_likes %></span></a></li>
     </ul>
     <%= render 'favorites/favorite_button', articles: @likes %>
+    <%= paginate @likes %>
   </div>
 </div>
 
