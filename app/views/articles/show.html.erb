@@ -6,7 +6,7 @@
   <p class="name text-right"><%= link_to "投稿者:" + @article.user.name, user_path(@article.user) %>　　作成日:<%= @article.created_at.strftime("%Y年%m月%d日") %></P>
 </div>
 <% if @article.image? %>
-  <%= image_tag @article.image.url %>
+  <%= image_tag @article.image.url, class: "firstimage" %>
 <% else %>
 <% end %>
 <div class="back border-bottom">
