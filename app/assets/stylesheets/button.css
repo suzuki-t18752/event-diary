@@ -66,23 +66,6 @@ a:visited {
 }
 
 .form-btn {
-  display: inline-block;
-  border: 2px solid blue;
-  color: blue;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 2px;
-  border-radius: 4px;
-  transition: .4s;
-}
-.form-btn:hover {
-  background-color: blue;
-  border-color: blue;
-  color: white;
-}
-
-.form-btn-long {
   width: 40%;
   display: inline-block;
   border: 2px solid blue;
@@ -94,7 +77,7 @@ a:visited {
   border-radius: 4px;
   transition: .4s;
 }
-.form-btn-long:hover {
+.form-btn:hover {
   background-color: blue;
   border-color: blue;
   color: white;
@@ -170,4 +153,42 @@ a:visited {
 }
 
 @media (max-width: 991px) {
+  .form-field {
+    width: 100%;
+  }
+  
+  .form-btn {
+    width: 100%;
+    display: inline-block;
+    border: 2px solid blue;
+    color: blue;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 4px;
+    transition: .4s;
+  }
+  .form-btn:hover {
+    background-color: blue;
+    border-color: blue;
+    color: white;
+  }
+  
+  .post-top > div {
+    width: 100%;
+    background-color: lightgray;
+  }
+  .top-image {
+    width: 100%;
+    transition-duration: 0.5s;
+  }
+  .top-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .top-name {
+    color: blue;
+    text-decoration: underline;
+  }
 }
