@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles.order(id: :desc).page(params[:page])
+    @articles = @user.articles.order(id: :desc).page(params[:page]).per(15)
     counts(@user)
   end
 

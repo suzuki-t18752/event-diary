@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   mount_uploader :image, ProfileUploader
   
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :introduction, presence: true, length: { maximum: 500 }          
+  validates :name, presence: true, length: { maximum: 25 }
+  validates :introduction, presence: true, length: { maximum: 200 }          
   has_secure_password
   
   has_many :articles

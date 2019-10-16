@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.search(params[:search]).page(params[:page]).per(24)
+    @articles = Article.search(params[:search]).page(params[:page]).per(10)
     
     if params[:tag_name]
       @articles = @articles.tagged_with("#{params[:tag_name]}")

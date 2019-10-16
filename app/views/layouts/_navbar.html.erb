@@ -1,9 +1,9 @@
-<header class="mb-4">
-  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: white;">
+<header class="">
+  <nav class="navbar navbar-expand-sm navbar-light">
       <% if logged_in? %>
-      <a class="navbar-brand" href="/articles">Event diary</a>
+      <a class="navbar-brand nav-btn" href="/articles">Event diary</a>
       <% else %>
-      <a class="navbar-brand" href="/">Event diary</a>
+      <a class="navbar-brand nav-btn" href="/">Event diary</a>
       <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
@@ -12,10 +12,10 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to '新規投稿', new_article_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to '新規投稿', new_article_path, class: 'nav-link nav-btn' %></li>
+          <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: 'nav-link nav-btn' %></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= truncate(current_user.name, length:10) %></a>
+            <a href="#" class="nav-link dropdown-toggle nav-btn" data-toggle="dropdown"><%= truncate(current_user.name, length:10) %></a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user) %></li>
               <li class="dropdown-item"><%= link_to 'ユーザー編集', edit_user_path(current_user) %></li>
@@ -25,15 +25,10 @@
             </ul>
           </li>
         <% else %>
-          <li class="nav-item"><%= link_to "ユーザー作成", signup_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to "ユーザー作成", signup_path, class: 'nav-link nav-btn' %></li>
+          <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link nav-btn' %></li>
         <% end %>
       </ul>
     </div>
   </nav>
 </header>
-
-<style type="text/css">
-<!--
--->
-</style>

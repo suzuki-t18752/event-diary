@@ -11,42 +11,33 @@
     </div>
   <% end %>
   
-  <div class="row">
-    <div class="col-sm-6">
+  <div class="">
+    <div class="">
       <div class="field">
         <%= form.label "タイトル" %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name,class: "form-field" %>
       </div>
       
       <div class="field">
         <%= form.label "タグ" %>
-        <%= text_field_tag 'article[tag_list]', @article.tag_list.join(','), "data-role": "tagsinput"  %>
+        <%= text_field_tag 'article[tag_list]', @article.tag_list.join(','), "data-role": "tagsinput",class: "form-field" %>
         <p>設定したいタグ事に , で区切ってください</p>
       </div>
       
       <div class="field">
       <%= form.label "トップ画像" %>
-      <%= form.file_field :image %>
+      <%= form.file_field :image,class: "form-field" %>
       </div>
       
       <div class="field content">
         <%= form.label "内容" %>
-        <%= form.rich_text_area :content %>
+        <%= form.rich_text_area :content%>
       </div>
     
       <div class="actions">
-        <%= form.submit '投稿', class: 'btn-border' %>
+        <%= form.submit '投稿', class: 'form-btn' %>
       </div>
     </div>
   </div>
 <% end %>
-
-<style type="text/css">
-<!--
-
-trix-editor {
-  width: 80vw;
-}
--->
-</style>
 

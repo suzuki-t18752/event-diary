@@ -1,4 +1,4 @@
-<div class="back">
+<div class="">
   <% if  @user.image? %>
     <%= image_tag @user.image.thumb.url, alt: @user.name + "のアイコン" %>
   <% else %>
@@ -7,21 +7,13 @@
   <%= @user.name %><%= render 'relationships/follow_button', user: @user %>
   <p><%= simple_format(@user.introduction) %></p>
 </div>
-<div class="list back">
+<div class="">
   <ul class="nav nav-tabs nav-justified">
-    <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿済み<span class="badge badge-secondary"><%= @count_articles %></span></a></li>
-    <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー中<span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-    <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー<span class="badge badge-secondary"><%= @count_followers %></span></a></li>
-    <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">お気に入り<span class="badge badge-secondary"><%= @count_likes %></span></a></li>
+    <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿済み<span class="tag"><%= @count_articles %></span></a></li>
+    <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">フォロー中<span class="tag"><%= @count_followings %></span></a></li>
+    <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">フォロワー<span class="tag"><%= @count_followers %></span></a></li>
+    <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">お気に入り<span class="tag"><%= @count_likes %></span></a></li>
   </ul>
   <%= render 'users', users: @followers %>
   <%= paginate @followers %>
 </div>
-
-<style type="text/css">
-<!--
-.back {
-  display: block;
-}
--->
-</style>
