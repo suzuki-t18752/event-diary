@@ -16,7 +16,7 @@
             <%= image_tag "写真の無い場合.jpeg", class: "top-image" %>
           <% end %>
         <% end %>
-          <div class="">
+          <div class="wide">
             <%= truncate(article.name, length:25) %><br>
             タグ:<% article.tag_list.each do |tag| %>
               <%=link_to tag, articles_path(tag_name: tag), class: "tag"%>

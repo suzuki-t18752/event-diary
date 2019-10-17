@@ -118,6 +118,17 @@ a:visited {
   color: red;
 }
 
+.btn-social-long-twitter {
+  padding: 3px;
+  color: #FFF;/*文字・アイコン色*/
+  display: inline-block;
+  background: #1da1f3;
+  text-decoration:none;/*下線は消す*/
+}
+.btn-social-long-twitter:hover {
+  color: gold;
+}
+
 .post-top > div {
   width: 200px;
   display: inline-block;

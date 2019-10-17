@@ -24,6 +24,9 @@
     <% end %>
   <% end %>
   <%= link_to '戻る', articles_path, class: 'link-btn' %>
+  <%= link_to @tweet_url,:onclick=>"window.open(this.href,'hoge', 'height=400, width=600');return false;" do %>
+    <div class="btn-social-long-twitter"><i class="fab fa-twitter"></i>&emsp;記事を共有する</div>
+  <% end %>
 </div>
 
 <h6>コメント:<%= @article.comments.count %>件</h6>

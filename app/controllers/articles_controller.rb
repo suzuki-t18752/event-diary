@@ -17,7 +17,16 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @comments = Comment.where(article_id: @article)   
+    @comments = Comment.where(article_id: @article) 
+    
+    @tweet_url = URI.encode(
+      "http://twitter.com/intent/tweet?original_referer=" +
+      request.url +
+      "&url=" +
+      request.url +
+      "&text=" +
+      "記事『" + @article.name + "』を閲覧しています。 #event-diary" 
+    )
   end
 
   # GET /articles/new
