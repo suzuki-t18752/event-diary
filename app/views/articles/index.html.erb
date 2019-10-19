@@ -1,6 +1,6 @@
-<div class="">
+<div class="search-form">
   <%= form_tag articles_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search], placeholder:"タイトル、日付" %>
+      <%= text_field_tag :search, params[:search], placeholder:"タイトル" %>
       <%= submit_tag "投稿の検索" %>
   <% end %>
 </div>

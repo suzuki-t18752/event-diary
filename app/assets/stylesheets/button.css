@@ -1,6 +1,38 @@
-body,header {
+@font-face {
+  font-family: MyYuGothic;
+  font-weight: normal;
+  src: local(YuGothic-Nedium),local("Yu Gothic Medium");
+}
+@font-face {
+  font-family: MyYuGothic;
+  font-weight: bold;
+  src: local(YuGothic-Bold),local("Yu Gothic");
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+  "游ゴシック", "Yu Gothic", YuGothic,
+  "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN",
+  "メイリオ", Meiryo,
+  "Noto Sans Japanese", "Noto Sans CJK JP",
+  sans-serif;
+  
+  &[data-os="windows"] {
+    font-family: Helvetica, Meiryo, sans-serif;
+  }
+  
+  &[data-os="windows 10"] {
+    font-family: Helvetica,MyYuGothic, Meiryo, sans-serif;
+  }
+}
+
+body {
   margin: 0;
   padding: 0;
+}
+
+header {
+  margin: 5px 10px 20px 10px;
 }
 
 li {
@@ -161,6 +193,10 @@ a:visited {
 
 .post-list {
   border-bottom: 1px solid;
+}
+
+.search-form {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 991px) {
