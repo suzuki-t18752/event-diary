@@ -21,7 +21,11 @@
             タグ:<% article.tag_list.each do |tag| %>
               <%=link_to tag, articles_path(tag_name: tag), class: "tag"%>
             <% end %><br>
-            <%= link_to "投稿者:" + truncate(article.user.name, length:25), user_path(article.user), class: "top-name" %><br>
+            <% if logged_in? %>
+              <%= link_to "投稿者:" + truncate(article.user.name, length:25), user_path(article.user), class: "top-name" %><br>
+            <% else %>
+              <%= content_tag :div,"投稿者:" + truncate(article.user.name, length:25), class: "" %>
+            <% end %>
             作成日:<%= article.created_at.strftime("%Y年%m月%d日") %>
           </div>
       </div>

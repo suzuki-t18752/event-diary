@@ -72,21 +72,21 @@ a:visited {
 
 .top {
   text-align: center;
-  margin-top: 20%;
+  margin-top: 15%;
 }
 
 .top-btn {
   display: inline-block;
-  background-color: orange;
+  background-color: gold;
   color: white;
   text-decoration: none;
   font-weight: bold;
   padding: 5px;
   border-radius: 4px;
-  border-bottom: 4px solid #d37800;
+  border-bottom: 4px solid goldenrod;
 }
 .top-btn:hover {
-  background-color: orange;
+  background-color: gold;
 }
 .top-btn:active {
     transform: translateY(4px);
