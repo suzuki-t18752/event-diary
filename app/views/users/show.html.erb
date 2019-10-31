@@ -1,11 +1,5 @@
 <div class="">
-  <% if  @user.image? %>
-    <%= image_tag @user.image.thumb.url, alt: @user.name + "のアイコン" %>
-  <% else %>
-    <%= content_tag :div, image_tag("アイコン.jpeg")%>
-  <% end %>
-  <%= @user.name %><%= render 'relationships/follow_button', user: @user %>
-  <p><%= simple_format(@user.introduction, class: "longtext") %></p>
+  <%= render 'user_profile' %>
 </div>
 <div class="">
   <ul class="nav nav-tabs nav-justified">
